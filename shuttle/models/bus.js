@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
+var db = 'mongodb://104.143.38.56:27002/test';
 var busSchema = new Schema({
 	bus_id : String,
 	time : Date,
@@ -28,9 +28,8 @@ busSchema.statics.test = function (callback) {
 
 var Bus = mongoose.model('Bus',busSchema);
 
-
-
-// var bus2 = new Bus({bus_id:"1",time:new Date,direction:"1",location:{longitude:40.813802,altitude:-73.604473}});
+// 
+// var bus2 = new Bus({bus_id:"1", time:Date.now, direction:"1", location:{longitude:40.813802, altitude:-73.604473}});
 // bus2.save();
 
 
