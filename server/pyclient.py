@@ -8,8 +8,8 @@ import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # 建立连接
-s.connect(('104.143.38.56', 8124))
-# s.connect(('127.0.0.1', 8124))
+# s.connect(('104.143.38.56', 8124))
+s.connect(('127.0.0.1', 9999))
 
 print(s.recv(1024).decode('utf-8'))
 data = raw_input()
