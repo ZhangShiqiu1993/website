@@ -9,14 +9,6 @@ function listening (socket) {
         socket.on('data',function(data){
                 var tmp = data.toString().split("\n");
                 var data = tmp[tmp.length-1].split(",");
-                // fs.appendFile('./geo_data.log',
-                //     new Date(Date.now()).toString()+" : "+tmp[tmp.length-1]+"\n--\n",
-                //     {flags:"a+",autoClose:true},
-                //     function (err){
-                //         if (err) {
-                //                 console.log(err);
-                //         };
-                //  });
 
                 MongoClient.connect(url, function (err, db) {
                     assert.equal(null, err);
@@ -26,12 +18,12 @@ function listening (socket) {
                         time: new Date(Date.now()),
                         next_stop: data[1],
                         location:{
-                            longitude: data[2],
-                            latitude: data[3]
+                            longitude: parseFloat(data[2]),
+                            latitude: parseFloat(data[3])
                         }
                     });
                 });
-                socket.write(data.toString());
+                console.log("Done ： " + data.toString());
         });
         socket.on('end', function(){
                 console.log("disconnect");
@@ -40,6 +32,6 @@ function listening (socket) {
 }
 
 var server = net.createServer(listening);
-server.listen(8124,function () {
+server.listen(9999,function () {
         console.log("Server running");
 })
