@@ -4,21 +4,13 @@ var Schema = mongoose.Schema;
 var busSchema = new Schema({
 	bus_id : String,
 	time : Date,
-	direction:String,
+	heading:String,
 	location : {
-		longitude: Number,
-		altitude: Number
-		// 40.813802, -73.604473
-	}//ensureIndex({"location":"2d"});
+		latitude:Number,
+		longitude: Number
+	}
 });
 
-
-// db.buses.find({"location":{"$near":{longitude:1,altitude:1},"$maxDistance":10}}).pretty()
-//Model
-// Instance Methods
-// busSchema.statics.findBySameID = function (callback) {
-// 	return this.model('Bus').find({bus_id:this.bus_id}, callback);
-// }
 
 
 busSchema.statics.test = function (callback) {
@@ -29,7 +21,7 @@ busSchema.statics.test = function (callback) {
 var Bus = mongoose.model('Bus',busSchema);
 
 
-// var bus2 = new Bus({bus_id:"1", time:new Date, direction:"1", location:{longitude:40.813802, altitude:-73.604473}});
+// var bus2 = new Bus({bus_id:"1", time:new Date, heading:"1", location:{longitude:40.813802, altitude:-73.604473}});
 // bus2.save();
 
 
