@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/assest/favicon.ico">
+  <title>NYIT Shuttle Bus</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+    <div id="menu">
+      <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading" href="/">Bus Stop</a>
+        <ul>
+          <li>
+            <a href="/suny">SUNY</a>
+          </li>
+          <li>
+            <a href="/anna-rubin-hall">Anna Rubin Hall</a>
+          </li>
+          <li>
+            <a href="/edu-hall">Educational Hall</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="main">
+      <div class="header">
+        <h1>Current Shuttle Bus</h1>
+        <h2>Where is your next bus schedule?</h2>
+      </div>
+      <div class="content">
+        <h2 class="content-subhead">Location</h2>
+        <table class="pure-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Bus ID</th>
+              <th>Time</th>
+              <th>Longitude</th>
+              <th>Altitude</th>
+            </tr>
+          </thead>
+          <% for (var i=0; i< buses.length; i++ ) { %>
+            <tbody>
+              <% if (i%2 === 1) { %>
+                <tr class="pure-table-odd">
+                  <% } else { %>
+                    <tr>
+                      <% } %>
+                        <td>
+                          <%= i %>
+                        </td>
+                        <td>
+                          <%= buses[i].bus_id %>
+                        </td>
+                        <td>
+                          <%= buses[i].time %>
+                        </td>
+                        <td>
+                          <%= buses[i].location.longitude %>
+                        </td>
+                        <td>
+                          <%= buses[i].location.latitude %>
+                        </td>
+                    </tr>
+            </tbody>
+            <% } %>
+        </table>
+        <h2 class="content-subhead">Map</h2>
+        <div id="map" style="width:500px;height:380px 100%;">
+          <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=40.813802%2C%20-73.604473&key=AIzaSyDHvY0II8hSI6zxGeYZVFoe_18145vgY60" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="/javascripts/ui.js"></script>
+</body>
+</h

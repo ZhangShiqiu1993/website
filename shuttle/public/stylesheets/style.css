@@ -1,12 +1,22 @@
-body {
-    color: #777;
-}
 
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+body {
+    color: #777;
+    height: 100%; 
+    margin: 0; 
+    padding: 0; 
+}
+html { 
+    height: 100%; 
+    margin: 0; 
+    padding: 0; 
+}
+
 
 .pure-img-responsive {
     max-width: 100%;
@@ -159,6 +169,11 @@ body {
 .menu-link span:after {
     margin-top: 0.6em;
 }
+#map { 
+    width:760px;
+    height:380px;
+    margin:auto;
+}
 
 
 @media (min-width: 48em) {
@@ -186,8 +201,6 @@ body {
 
 .footer {
     background-color: rgb(255,255,255);
-    position: fixed;
-    bottom: 0;
     width: 100%;
     font-size: 87.5%;
     border-top: 1px solid #eee;

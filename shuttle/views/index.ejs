@@ -2,95 +2,122 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="/assest/favicon.ico">
-  <title>NYIT Shuttle Bus</title>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive.css">
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-  <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/assest/favicon.ico">
+    <title>NYIT Shuttle Bus</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body>
-  <div id="layout">
+<body id="layout">
+
     <a href="#menu" id="menuLink" class="menu-link">
-      <span></span>
+        <span></span>
     </a>
     <div id="menu">
-      <div class="pure-menu pure-menu-open">
-        <a class="pure-menu-heading" href="/">Bus Stop</a>
-        <ul>
-          <li>
-            <a href="/suny">SUNY</a>
-          </li>
-          <li>
-            <a href="/anna-rubin-hall">Anna Rubin Hall</a>
-          </li>
-          <li>
-            <a href="/edu-hall">Educational Hall</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div id="main">
-      <div class="header">
-        <h1>Current Shuttle Bus</h1>
-        <h2>Where is your next bus schedule?</h2>
-      </div>
-      <div class="content">
-        <h2 class="content-subhead">Location</h2>
-        <table class="pure-table">
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>Bus ID</th>
-              <th>Time</th>
-              <th>Longitude</th>
-              <th>Altitude</th>
-            </tr>
-          </thead>
-          <% for (var i=0; i< buses.length; i++ ) { %>
-            <tbody>
-              <% if (i%2 === 1) { %>
-                <tr class="pure-table-odd">
-                  <% } else { %>
-                    <tr>
-                      <% } %>
-                        <td>
-                          <%= i %>
-                        </td>
-                        <td>
-                          <%= buses[i].bus_id %>
-                        </td>
-                        <td>
-                          <%= buses[i].time %>
-                        </td>
-                        <td>
-                          <%= buses[i].location.longitude %>
-                        </td>
-                        <td>
-                          <%= buses[i].location.latitude %>
-                        </td>
-                    </tr>
-            </tbody>
-            <% } %>
-        </table>
-        <h2 class="content-subhead">Map</h2>
-        <div id="map" style="width:500px;height:380px 100%;">
-          <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=40.813802%2C%20-73.604473&key=AIzaSyDHvY0II8hSI6zxGeYZVFoe_18145vgY60" allowfullscreen></iframe>
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="/">Bus Stop</a>
+            <ul>
+                <li>
+                    <a href="/suny">SUNY</a>
+                </li>
+                <li>
+                    <a href="/anna-rubin-hall">Anna Rubin Hall</a>
+                </li>
+                <li>
+                    <a href="/edu-hall">Educational Hall</a>
+                </li>
+            </ul>
         </div>
-      </div>
     </div>
-    <div class="footer">
-      <div class="pure-menu pure-menu-horizontal pure-menu-open">
-        <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </div>
+    <div class="main">
+
+
+        <div class="header">
+            <h1>Current Shuttle Bus</h1>
+            <h2>Where is your next bus schedule?</h2>
+        </div>
+        <div class="content">
+            <h2 class="content-subhead">Location</h2>
+            <table class="pure-table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Bus ID</th>
+                        <th>Time</th>
+                        <th>Longitude</th>
+                        <th>Altitude</th>
+                    </tr>
+                </thead>
+                <% for (var i=0; i< buses.length; i++ ) { %>
+                    <tbody>
+                        <% if (i%2 === 1) { %>
+                            <tr class="pure-table-odd">
+                                <% } else { %>
+                                    <tr>
+                                        <% } %>
+                                            <td>
+                                                <%= i %>
+                                            </td>
+                                            <td>
+                                                <%= buses[i].bus_id %>
+                                            </td>
+                                            <td>
+                                                <%= buses[i].time %>
+                                            </td>
+                                            <td>
+                                                <%= buses[i].location.longitude %>
+                                            </td>
+                                            <td>
+                                                <%= buses[i].location.latitude %>
+                                            </td>
+                                    </tr>
+                    </tbody>
+                    <% } %>
+            </table>
+            <h2 class="content-subhead">Map</h2>
+        <div id="map">
+            <h1>asdadsdasd</h1>
+        </div>
+
+        </div>
+
+        <div class="footer">
+            <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                <ul>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
     </div>
-  </div>
-  <script src="/javascripts/ui.js"></script>
+    
+    <script type="text/javascript">
+    var map;
+
+    function initMap() {
+        var Anna = new google.maps.LatLng(40.8134937, -73.6040468);
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: Anna,
+            zoom: 13
+        });
+
+        <% for (var i=0; i< buses.length; i++ ) { %>
+        new google.maps.Marker({
+            position: new google.maps.LatLng(
+                <%= buses[i].location.latitude %>,
+                <%= buses[i].location.longitude %>
+            )
+        }).setMap(map);
+        <% } %>
+    }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHvY0II8hSI6zxGeYZVFoe_18145vgY60&callback=initMap"></script>
+    <script src="/javascripts/ui.js"></script>
 </body>
-</h
+
+</html>
