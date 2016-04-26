@@ -11,12 +11,19 @@ var busSchema = new Schema({
 	}
 });
 
-
-
 busSchema.statics.test = function (callback) {
 	this.find({bus_id:"1"},callback);
 };
 
+busSchema.statics.toAR = function (callback) {
+	this.find({bus_id:"1","heading":"AR"},callback);
+};
+busSchema.statics.toEH = function (callback) {
+	this.find({bus_id:"1","heading":"EH"},callback);
+};
+busSchema.statics.toSUNY = function (callback) {
+	this.find({bus_id:"1","heading":"SUNY"},callback);
+};
 
 var Bus = mongoose.model('Bus',busSchema);
 

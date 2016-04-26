@@ -40,15 +40,45 @@
             </div>
             <div class="content">
                 <h2 class="content-subhead">Location</h2>
-                <p>
-                    Location Table
-                </p>
+                <table class="pure-table">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Bus ID</th>
+                            <th>Time</th>
+                            <th>Longitude</th>
+                            <th>Latitiude</th>
+                        </tr>
+                    </thead>
+                    <% for (var i = buses.length-1; i>=0 && i > buses.length-11; i-- ) { %>
+                        <tbody>
+                            <% if (i%2 === 1) { %>
+                                <tr class="pure-table-odd">
+                                    <% } else { %>
+                                        <tr>
+                                            <% } %>
+                                                <td>
+                                                    <%= buses.length-i %>
+                                                </td>
+                                                <td>
+                                                    <%= buses[i].bus_id %>
+                                                </td>
+                                                <td>
+                                                    <%= buses[i].time %>
+                                                </td>
+                                                <td>
+                                                    <%= buses[i].location.longitude %>
+                                                </td>
+                                                <td>
+                                                    <%= buses[i].location.latitude %>
+                                                </td>
+                                        </tr>
+                        </tbody>
+                        <% } %>
+                </table>
                 <h2 class="content-subhead">Map</h2>
-                <p>
-                    Map and Mark
-                </p>
+                <div id="map"></div>
             </div>
-        </div>
         <div class="footer">
             <div class="pure-menu pure-menu-horizontal pure-menu-open">
                 <ul>
@@ -58,6 +88,27 @@
             </div>
         </div>
     </div>
+        <script type="text/javascript">
+    var map;
+
+    function initMap() {
+        var Anna = new google.maps.LatLng(40.8134937, -73.6040468);
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: Anna,
+            zoom: 13
+        });
+
+        <% for (var i=0; i< buses.length; i++ ) { %>
+        new google.maps.Marker({
+            position: new google.maps.LatLng(
+                <%= buses[i].location.latitude %>,
+                <%= buses[i].location.longitude %>
+            )
+        }).setMap(map);
+        <% } %>
+    }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHvY0II8hSI6zxGeYZVFoe_18145vgY60&callback=initMap"></script>
     <script src="/javascripts/ui.js"></script>
 </body>
-</h
+</html>

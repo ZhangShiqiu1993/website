@@ -12,17 +12,39 @@ module.exports = function(app) {
 			res.render('index',{buses:doc});
 		});
 	});
+
+	// app.get('/test', function(req, res) {
+	// 	Bus.test(function (err,doc) {
+	// 		res.render('index',{buses:doc});
+	// 	});
+	// });
+
+	// app.get('/', function(req, res) {
+	// 	Bus.toSUNY(function (err,doc) {
+	// 		res.render('suny',{buses:doc});
+	// 	});
+	// });
+
+
 	app.get('/google7368571379a6b882.html', function(req, res) {
   		res.send('google7368571379a6b882');
 	});
+
+
 	app.get('/suny', function(req, res) {
-  		res.render('suny');
+		Bus.toSUNY(function (err,doc) {
+			res.render('suny',{buses:doc});
+		});
 	});
 	app.get('/anna-rubin-hall', function(req, res) {
-  		res.render('anna-rubin-hall');
+		Bus.toAR(function (err,doc) {
+			res.render('anna-rubin-hall',{buses:doc});
+		});
 	});
 	app.get('/edu-hall', function(req, res) {
-  		res.render('edu-hall');
+		Bus.toEH(function (err,doc) {
+			res.render('edu-hall',{buses:doc});
+		});
 	});
 	app.get('/about', function(req, res) {
   		res.render('about');

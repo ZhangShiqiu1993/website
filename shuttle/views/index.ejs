@@ -34,8 +34,6 @@
         </div>
     </div>
     <div class="main">
-
-
         <div class="header">
             <h1>Current Shuttle Bus</h1>
             <h2>Where is your next bus schedule?</h2>
@@ -49,10 +47,10 @@
                         <th>Bus ID</th>
                         <th>Time</th>
                         <th>Longitude</th>
-                        <th>Altitude</th>
+                        <th>Latitiude</th>
                     </tr>
                 </thead>
-                <% for (var i=0; i< buses.length; i++ ) { %>
+                <% for (var i = buses.length-1; i>=0 && i > buses.length-11; i-- ) { %>
                     <tbody>
                         <% if (i%2 === 1) { %>
                             <tr class="pure-table-odd">
@@ -60,7 +58,7 @@
                                     <tr>
                                         <% } %>
                                             <td>
-                                                <%= i %>
+                                                <%= buses.length-i %>
                                             </td>
                                             <td>
                                                 <%= buses[i].bus_id %>
@@ -79,12 +77,8 @@
                     <% } %>
             </table>
             <h2 class="content-subhead">Map</h2>
-        <div id="map">
-            <h1>asdadsdasd</h1>
+            <div id="map"></div>
         </div>
-
-        </div>
-
         <div class="footer">
             <div class="pure-menu pure-menu-horizontal pure-menu-open">
                 <ul>
@@ -93,7 +87,6 @@
                 </ul>
             </div>
         </div>
-
     </div>
     
     <script type="text/javascript">
@@ -117,7 +110,7 @@
     }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHvY0II8hSI6zxGeYZVFoe_18145vgY60&callback=initMap"></script>
-    <script src="/javascripts/ui.js"></script>
+ <script src="/javascripts/ui.js"></script>
 </body>
 
 </html>
