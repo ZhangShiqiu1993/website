@@ -7,9 +7,6 @@ var url = 'mongodb://127.0.0.1:27001/test';
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 
-// var mongoose = require('mongoose');
-// var Schema = mongoose.Schema;
-// var busSchema = new Schema({
 // 	bus_id : String,
 // 	time : Date,
 // 	next_stop:String,
@@ -17,10 +14,6 @@ var assert = require('assert');
 // 		longitude: Number,
 // 		latitude: Number
 // 	}
-// });
-// var Bus = mongoose.model('Bus',busSchema);
-// mongoose.connect(url);
-
 
 function listening (socket) {
     socket.on('data',function(data){
@@ -41,20 +34,8 @@ function listening (socket) {
             });
             db.close();
     	});
-        // var bus = new Bus({
-    	   //  bus_id: data[0],
-        //     time: new Date(Date.now()),
-        //     next_stop: data[1],
-        //     location:{
-        //         longitude: parseFloat(data[2]),
-        //         latitude: parseFloat(data[3])
-        //     }
-        // });
-        // bus.save();
+
         socket.write(data.toString());
-
-
-
         
     });
     socket.on('end', function(){
