@@ -1,5 +1,3 @@
-var express = require('express');
-var router = express.Router();
 var models = require('../models/bus');
 var mongoose = require('mongoose');
 var Bus = models.Bus;
@@ -7,20 +5,56 @@ var db = 'mongodb://104.143.38.56:27002/test';
 
 mongoose.connect(db);
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
+
+module.exports = function(app) {
 
 
-router.get('/update',function(req, res){
-  Bus.latest(function (err, doc) {
-    res.json(doc);
-  });
-});
 
-router.get('/google7368571379a6b882.html', function(req, res) {
-  res.render('google7368571379a6b882');
-});
+	app.get('/', function(req, res) {
+		Bus.test(function (err,doc) {
+			res.render('index');
+		});
+	});
 
-module.exports = router;
+	app.get('/data',function(req, res){
+		Bus.latest(function (err, doc) {
+			res.json(doc);
+		});
+	});
+
+
+
+
+	app.get('/test', function(req, res) {
+		Bus.test(function (err,doc) {
+			res.render('test',{buses:doc});
+		});
+	});
+
+	app.get('/google7368571379a6b882.html', function(req, res) {
+  		res.send('google7368571379a6b882');
+	});
+
+
+	// app.get('/suny', function(req, res) {
+	// 	Bus.toSUNY(function (err,doc) {
+	// 		res.render('suny',{buses:doc});
+	// 	});
+	// });
+	// app.get('/anna-rubin-hall', function(req, res) {
+	// 	Bus.toAR(function (err,doc) {
+	// 		res.render('anna-rubin-hall',{buses:doc});
+	// 	});
+	// });
+	// app.get('/edu-hall', function(req, res) {
+	// 	Bus.toEH(function (err,doc) {
+	// 		res.render('edu-hall',{buses:doc});
+	// 	});
+	// });
+	app.get('/about', function(req, res) {
+  		res.render('about');
+	});
+	app.get('/contact', function(req, res) {
+  		res.render('contact');
+	});
+};

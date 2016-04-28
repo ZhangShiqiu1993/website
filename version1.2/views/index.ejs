@@ -1,104 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/assest/favicon.ico">
-
-  <title>NYIT Shuttle Bus</title>
-
-  <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <link href="/stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-  <link href="/stylesheets/style.css" rel="stylesheet">
-
-  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-  <!--[if lt IE 9]><script src="/javascripts/ie8-responsive-file-warning.js"></script><![endif]-->
-  <script src="/javascripts/ie-emulation-modes-warning.js"></script>
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/assest/favicon.ico">
+    <title>NYIT Shuttle Bus</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body>
-
-<!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Shuttle Bus</a>
+<body id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+    <div id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="/test">Bus Stop</a>
+            <ul>
+                <li>
+                    <a href="/">home</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <!--<li class="dropdown">-->
-          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
-          <!--<ul class="dropdown-menu">-->
-            <!--<li><a href="#">Action</a></li>-->
-            <!--<li><a href="#">Another action</a></li>-->
-            <!--<li><a href="#">Something else here</a></li>-->
-            <!--<li role="separator" class="divider"></li>-->
-            <!--<li class="dropdown-header">Nav header</li>-->
-            <!--<li><a href="#">Separated link</a></li>-->
-            <!--<li><a href="#">One more separated link</a></li>-->
-          <!--</ul>-->
-        <!--</li>-->
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</nav>
-
-<!-- Begin page content -->
-<div class="container">
-  <div class="page-header">
-      <h1>Current Shuttle Bus</h1>
-      <p class="lead" id="next_stop">The bus is not in service</p>
-  </div>
-    <div class="table-responsive">
-        <table class="table table-striped" id="location_table">
-
-        </table>
+    <div class="main">
+        <div class="content">
+            <h2 class="content-subhead">Map</h2>
+            <div id="map"></div>
+        </div>
     </div>
-    <br>
-    <div id="map" class="img-responsive">
-
+    <div class="footer">
+        <p>The web page is built by <a href="">Shiqiu Zhang</a>.</p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
     </div>
-    <br>
-</div>
-
-<footer class="footer">
-  <div class="container">
-    <p class="text-muted">
-      The web page is built by <a href="https://github.com/ZhangShiqiu1993/website">Shiqiu Zhang</a>.
-    </p>
-  </div>
-</footer>
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/javascripts/jquery.min.js"><\/script>')</script>
-<script src="/javascripts/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="/javascripts/ie10-viewport-bug-workaround.js"></script>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHvY0II8hSI6zxGeYZVFoe_18145vgY60&callback=initMap"></script>
-<script src="/javascripts/markers.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHvY0II8hSI6zxGeYZVFoe_18145vgY60&callback=initMap"></script>
+    <script src="/javascripts/ui.js"></script>
+    <script src="/javascripts/markers.js"></script>
 </body>
+
 </html>
