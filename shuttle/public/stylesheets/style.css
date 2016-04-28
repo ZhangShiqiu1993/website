@@ -224,6 +224,8 @@ html {
 }
 
 .footer {
+    position: relative;
+    bottom: 0;
     background-color: rgb(255,255,255);
     width: 100%;
     border-top: 1px solid #eee;
@@ -236,7 +238,7 @@ html {
     color: rgb(61, 146, 201);
 }
 
-.footer .pure-menu a:hover, .footer .pure-menu a:focus {
+.footer a:hover, .footer  a:focus {
     background: none;
     text-decoration: underline;
 }

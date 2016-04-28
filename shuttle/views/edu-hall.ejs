@@ -38,80 +38,59 @@
                 <h1>Current Shuttle Bus</h1>
                 <h2>The next bus to Educational Hall </h2>
             </div>
-        <div class="content">
-            <h2 class="content-subhead">Location</h2>
-            <table class="pure-table">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Bus ID</th>
-                        <th>Time</th>
-                        <th>Longitude</th>
-                        <th>Latitiude</th>
-                    </tr>
-                </thead>
-                <% for (var i = buses.length-1; i>=0 && i > buses.length-11; i-- ) { %>
-                    <tbody>
-                        <% if (i%2 === 1) { %>
-                            <tr class="pure-table-odd">
-                                <% } else { %>
-                                    <tr>
-                                        <% } %>
-                                            <td>
-                                                <%= buses.length-i %>
-                                            </td>
-                                            <td>
-                                                <%= buses[i].bus_id %>
-                                            </td>
-                                            <td>
-                                                <%= buses[i].time %>
-                                            </td>
-                                            <td>
-                                                <%= buses[i].location.longitude %>
-                                            </td>
-                                            <td>
-                                                <%= buses[i].location.latitude %>
-                                            </td>
-                                    </tr>
-                    </tbody>
-                    <% } %>
-            </table>
-            <h2 class="content-subhead">Map</h2>
-            <div id="map"></div>
-        </div>
-        <div class="footer">
-            <div class="pure-menu pure-menu-horizontal pure-menu-open">
-                <ul>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
+            <div class="content">
+                <h2 class="content-subhead">Location</h2>
+                <table class="pure-table">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Bus ID</th>
+                            <th>Time</th>
+                            <th>Longitude</th>
+                            <th>Latitiude</th>
+                        </tr>
+                    </thead>
+                    <% for (var i = buses.length-1; i>=0 && i > buses.length-11; i-- ) { %>
+                        <tbody>
+                            <% if (i%2 === 1) { %>
+                                <tr class="pure-table-odd">
+                                    <% } else { %>
+                                        <tr>
+                                            <% } %>
+                                                <td>
+                                                    <%= buses.length-i %>
+                                                </td>
+                                                <td>
+                                                    <%= buses[i].bus_id %>
+                                                </td>
+                                                <td>
+                                                    <%= buses[i].time %>
+                                                </td>
+                                                <td>
+                                                    <%= buses[i].location.longitude %>
+                                                </td>
+                                                <td>
+                                                    <%= buses[i].location.latitude %>
+                                                </td>
+                                        </tr>
+                        </tbody>
+                        <% } %>
+                </table>
+                <h2 class="content-subhead">Map</h2>
+                <div id="map"></div>
+            </div>
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-
-    </div>
-    
-    <script type="text/javascript">
-    var map;
-
-    function initMap() {
-        var Edu_Hall = new google.maps.LatLng(40.7997612,-73.5961476);
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: Edu_Hall,
-            zoom: 13
-        });
-
-        <% for (var i=0; i< buses.length; i++ ) { %>
-        new google.maps.Marker({
-            position: new google.maps.LatLng(
-                <%= buses[i].location.latitude %>,
-                <%= buses[i].location.longitude %>
-            )
-        }).setMap(map);
-        <% } %>
-    }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHvY0II8hSI6zxGeYZVFoe_18145vgY60&callback=initMap"></script>
- <script src="/javascripts/ui.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHvY0II8hSI6zxGeYZVFoe_18145vgY60&callback=initMap"></script>
+        <script src="/javascripts/ui.js"></script>
+        <script src="/javascripts/markers.js"></script>
 </body>
 
 </html>

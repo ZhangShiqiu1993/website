@@ -25,6 +25,14 @@ busSchema.statics.toSUNY = function (callback) {
 	this.find({bus_id:"1","heading":"SUNY"},callback);
 };
 
+busSchema.statics.latest = function (callback) {
+	this.
+		find({bus_id:"1"}).
+		sort({"time":-1}).
+		limit(10).
+		exec(callback);
+};
+
 var Bus = mongoose.model('Bus',busSchema);
 
 
