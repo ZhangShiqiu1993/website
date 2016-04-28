@@ -14,10 +14,6 @@ var busSchema = new Schema({
     }
 });
 
-busSchema.statics.showAll = function (callback) {
-    this.find({bus_id:"1"},callback);
-};
-
 
 
 busSchema.statics.latest = function (callback) {

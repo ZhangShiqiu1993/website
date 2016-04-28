@@ -9,23 +9,18 @@ mongoose.connect(db);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
 
-router.get('/data',function(req, res){
+router.get('/update',function(req, res){
   Bus.latest(function (err, doc) {
     res.json(doc);
   });
 });
 
-
-router.get('/test', function(req, res) {
-  Bus.showAll(function (err,doc) {
-    res.render('test',{buses:doc});
-  });
+router.get('/google7368571379a6b882.html', function(req, res) {
+  res.render('google7368571379a6b882');
 });
-
-
 
 module.exports = router;
