@@ -18,7 +18,7 @@ var busSchema = new Schema({
 
 busSchema.statics.latest = function (callback) {
   this.
-    find({bus_id:"1"}).
+    find({}).
     sort({"time":-1}).
     limit(10).
     exec(callback);
