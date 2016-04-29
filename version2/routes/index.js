@@ -15,6 +15,9 @@ router.get('/about', function(req, res, next) {
     res.render('about');
 });
 
+router.get('/schedule', function(req, res, next) {
+  res.render('schedule');
+});
 router.get('/contact', function(req, res, next) {
   res.render('contact');
 });
